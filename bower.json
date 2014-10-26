@@ -2,6 +2,7 @@
   "name": "errno",
   "private": true,
   "dependencies": {
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.2.0",
+    "firebase": "~1.1.2"
   }
 }
