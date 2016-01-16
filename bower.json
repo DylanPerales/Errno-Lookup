@@ -3,7 +3,9 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~3.2.0",
-    "firebase": "~2.1.0"
+    "firebase": "~2.2.4",
+    "notifyjs": "~0.3.2",
+    "pnotify": "~2.0.1"
   },
   "resolutions": {
     "firebase": "~2.1.0"

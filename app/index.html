@@ -10,6 +10,9 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/pnotify.core.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/pnotify.buttons.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/pnotify.history.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -23,42 +26,43 @@
 
 
     <div class="container">
-      <div class="header">
+      <div class="page-header">
         <!-- <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul> -->
-        <h3 class="text-muted">errno Lookup</h3>
-
+        <h3><img src="favicon.ico" /> errno Lookup</h3>
       </div>
 
-      <div class="jumbotron">
+      <div class="well well-lg">
         <!-- <h1>Search errno!</h1> -->
-        <input type="text" placeholder="Search Errno" class="lead" id="errnoInput"></input>
-        <h3>Select Platform:</h3>
-        <div class="btn-group btn-group-sm" role="group">
-          <button type="button" class="btn btn-default" id="aixButton">AIX</button>
-          <button type="button" class="btn btn-default" id="linuxButton">Linux</button>
+        <div class="row">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default" id="aixButton">AIX</button>
+              <button type="button" class="btn btn-default" id="linuxButton">Linux</button>
+            </div>
+            <input type="text" placeholder="Search Errno" class="form-control" id="errnoInput"></input>
+          </div>
         </div>
       </div>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">Errno List</div>
-
-        <!-- <div class="table-responsive"> -->
-          <table class="table errnoTable">
+      <div class="panel" id="errnopanel">
+        <div class="panel-heading"><strong>Errno List</strong></div>
+        <div class="table-responsive">
+          <table class="table table-hover errnoTable">
             <tr class="header">
-              <th>Number</th>
-              <th>Message</th>
-              <th>Description</th>
+              <th class="col-sm-2 noselect">#</th>
+              <th class="col-sm-3 noselect">Message</th>
+              <th class="col-sm-7 noselect">Description</th>
             </tr>
           </table>
-        <!-- </div> -->
+        </div>
       </div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> by <a href="http://www.peralysis.com" target="_blank">Peralysis</a></p>
+        <p><span class="glyphicon glyphicon-heart"></span> from <a href="http://www.peralysis.com" target="_blank">Peralysis</a></p>
       </div>
     </div>
 
@@ -67,6 +71,14 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/notifyjs/dist/notify.js"></script>
+    <script src="bower_components/pnotify/pnotify.core.js"></script>
+    <script src="bower_components/pnotify/pnotify.buttons.js"></script>
+    <script src="bower_components/pnotify/pnotify.callbacks.js"></script>
+    <script src="bower_components/pnotify/pnotify.confirm.js"></script>
+    <script src="bower_components/pnotify/pnotify.desktop.js"></script>
+    <script src="bower_components/pnotify/pnotify.history.js"></script>
+    <script src="bower_components/pnotify/pnotify.nonblock.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -77,7 +89,7 @@
       e=o.createElement(i);r=o.getElementsByTagName(i)[0];
       e.src='//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+      ga('create','UA-58866822-1');ga('send','pageview');
     </script>
 
         <!-- build:js(.) scripts/plugins.js -->
@@ -93,6 +105,7 @@
         <script src="bower_components/bootstrap/js/scrollspy.js"></script>
         <script src="bower_components/bootstrap/js/collapse.js"></script>
         <script src="bower_components/bootstrap/js/tab.js"></script>
+
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->

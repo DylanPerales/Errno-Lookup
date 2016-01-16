@@ -1,7 +1,10 @@
 'use strict';
 $(document).ready(function() {
+
   $('#aixButton').addClass('active');
+
   var errnoFirebase = new Firebase('https://errno.firebaseio.com/');
+
   errnoFirebase.once('value', function(errnoListSnapshot) {
     errnoListSnapshot.forEach(function(erroSnapshot) {
       var errnoNumber = erroSnapshot.child('Number').val();
@@ -43,7 +46,6 @@ $(document).ready(function() {
             if (hidden === 0)  {
                _this.show();
             }
-            //$('errno').find( filter ).addClass('success');
         });
     });
 
@@ -63,7 +65,7 @@ $(document).ready(function() {
               $('.errnoTable').append('<tr class="errnoRow"><td>' + errnoNumber + '</td><td>' + errnoMessage + '</td><td>' + errnoDesc + '</td></tr>');
             });
           });
-          document.getElementById("errnoInput").value= "";
+          document.getElementById('errnoInput').value= '';
         }
     });
 
@@ -82,7 +84,21 @@ $(document).ready(function() {
               $('.errnoTable').append('<tr class="errnoRow"><td>' + errnoNumber + '</td><td>' + errnoMessage + '</td><td>' + errnoDesc + '</td></tr>');
             });
           });
-          document.getElementById("errnoInput").value= "";
+          document.getElementById('errnoInput').value= '';
         }
+      });
+
+      $('.errnoTable').on( 'click', 'tr', function() {
+        // console.log($(this)[0].outerText);
+        //var stack_bar_bottom = {"dir1":"up", "dir2":"right", "push":"bottom" };
+        // var opts = {
+        //   text: 'Row copied to clipboard.',
+        //   addclass: 'stack-bar-bottom',
+        //   cornerclass: '',
+          //width: '70%',
+          //stack: stack_bar_bottom
+        //});
+        //new PNotify(opts);
+
       });
 });

@@ -7,8 +7,77 @@
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
+  /*padding-top: 20px;*/
   padding-bottom: 20px;
+  background: black;
+  font-family: Terminal, monospace;
+
+}
+
+::selection {
+  background: gray; /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: gray; /* Gecko Browsers */
+  color: white;
+}
+
+.page-header {
+  color: white;
+}
+
+.well, .panel {
+  background-color: black;
+  color: green;
+}
+
+.well {
+  border-color: black;
+}
+
+table {
+  border-color: black;
+  color: green;
+}
+
+th {
+  font-style: strong;
+  color: white;
+}
+
+th:hover {
+  outline: 0;
+}
+
+.panel-heading {
+  border-color: green;
+  color: black;
+  background-color: green;
+}
+
+.btn {
+  color: green;
+  background-color: black;
+  border-color: white;
+}
+
+.btn:hover {
+  color: white;
+  background-color: green;
+  border-color: white;
+  text: strong;
+}
+
+.active {
+  color: black !important;
+  background-color: green !important;
+  border-color: white !important;
+  text-decoration: bold;
+}
+
+.panel {
+  border-color: green;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -17,6 +86,33 @@ body {
 .footer {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+#searchpanel {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.errnoTable {
+  background-color: black;
+  color: green;
+}
+
+#errnoInput {
+  animation: blink 1s infinite;
+  background: black;
+  color: green;
+  outline: none;
+  border-color: white;
+}
+#errnoInput.focus {
+
+  outline: none;
+}
+
+@keyframes blink-empty {
+  50% {border-left: 1px solid #333;}
 }
 
 /* Custom page header */
@@ -61,6 +157,15 @@ body {
 
 .marketing p + h4 {
   margin-top: 28px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Responsive: Portrait tablets and up */
