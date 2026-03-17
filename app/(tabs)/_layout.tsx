@@ -1,3 +1,4 @@
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { Tabs } from 'expo-router';
 import React from 'react';
 
@@ -18,6 +19,7 @@ export default function TabLayout() {
         options={{
           title: 'Unix (AIX)',
           tabBarLabel: 'Unix',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="server" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -25,6 +27,7 @@ export default function TabLayout() {
         options={{
           title: 'Linux',
           tabBarLabel: 'Linux',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="linux" size={24} color={color} />,
         }}
       />
     </Tabs>
