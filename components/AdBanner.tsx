@@ -16,6 +16,11 @@ try {
 }
 
 export default function AdBanner() {
+    // Temporarily disabled for App Store / Play Store publication
+    // Remove early return to restore ads
+    return null;
+
+    /*
     const isExpoGo = Constants.appOwnership === 'expo';
 
     if (isExpoGo || !BannerAd) {
@@ -45,4 +50,5 @@ export default function AdBanner() {
             />
         </View>
     );
+    */
 }

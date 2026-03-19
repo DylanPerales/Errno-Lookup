@@ -7,13 +7,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function UnixScreen() {
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
             <AdBanner />
             <View style={styles.headerContainer}>
-                <Image source={require('@/assets/images/favicon.ico')} style={styles.icon} />
+                <Image source={require('@/other/icon.png')} style={styles.icon} />
                 <Text style={styles.headerText}>errno Lookup (AIX)</Text>
             </View>
-            <ErrnoList data={unixData} />
+            <ErrnoList data={unixData} osName="aix" />
         </SafeAreaView>
     );
 }
@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
         width: 32,
         height: 32,
         marginRight: 10,
+        borderWidth: 1,
+        borderColor: 'rgb(51, 255, 0)',
     },
     headerText: {
         fontSize: 24,

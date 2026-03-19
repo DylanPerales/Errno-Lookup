@@ -1,5 +1,6 @@
+import * as Linking from 'expo-linking';
 import React, { useState } from 'react';
-import { FlatList, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 interface ErrnoItem {
   Number: number;
@@ -9,9 +10,10 @@ interface ErrnoItem {
 
 interface ErrnoListProps {
   data: ErrnoItem[];
+  osName: string;
 }
 
-export default function ErrnoList({ data }: ErrnoListProps) {
+export default function ErrnoList({ data, osName }: ErrnoListProps) {
   const [search, setSearch] = useState('');
 
   const filteredData = data.filter(item => {
@@ -20,14 +22,24 @@ export default function ErrnoList({ data }: ErrnoListProps) {
     return searchTerms.every(term => text.includes(term));
   });
 
+  const handlePress = (item: ErrnoItem) => {
+    const query = `${osName} errno ${item.Number} ${item.Message || ''}`.trim();
+    const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    Linking.openURL(url);
+  };
+
   const renderItem = ({ item }: { item: ErrnoItem }) => (
-    <View style={styles.itemContainer}>
+    <TouchableOpacity
+      style={styles.itemContainer}
+      onPress={() => handlePress(item)}
+      activeOpacity={0.7}
+    >
       <Text style={styles.number}>{item.Number}</Text>
       <View style={styles.textContainer}>
         <Text style={styles.message}>{item.Message || 'N/A'}</Text>
         <Text style={styles.description}>{item.Description ? item.Description.trim() : ''}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
@@ -79,7 +91,9 @@ const styles = StyleSheet.create({
     }),
   },
   listContent: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 0,
     alignItems: 'center',
   },
   itemContainer: {
